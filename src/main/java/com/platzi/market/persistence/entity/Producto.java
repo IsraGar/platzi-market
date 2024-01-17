@@ -26,6 +26,11 @@ public class Producto {
 
     private Boolean estado;
 
+    @ManyToMany
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
+    //insertable = false, updatable = false -> Hace que sea necesario ir a la entity especificada para poder hacer cambios
+    private Categoria categoria;
+
     public Integer getIdProdcuto() {
         return idProdcuto;
     }
