@@ -8,7 +8,7 @@ public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_producto")
-    private Integer idProdcuto;
+    private Integer idProducto;
 
     private String nombre;
 
@@ -26,17 +26,17 @@ public class Producto {
 
     private Boolean estado;
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
     //insertable = false, updatable = false -> Hace que sea necesario ir a la entity especificada para poder hacer cambios
     private Categoria categoria;
 
-    public Integer getIdProdcuto() {
-        return idProdcuto;
+    public Integer getIdProducto() {
+        return idProducto;
     }
 
-    public void setIdProdcuto(Integer idProdcuto) {
-        this.idProdcuto = idProdcuto;
+    public void setIdProducto(Integer idProdcuto) {
+        this.idProducto = idProdcuto;
     }
 
     public String getNombre() {
@@ -85,5 +85,13 @@ public class Producto {
 
     public void setEstado(Boolean estado) {
         this.estado = estado;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 }

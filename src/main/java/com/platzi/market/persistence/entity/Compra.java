@@ -25,10 +25,10 @@ public class Compra {
 
     private String estado;
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
     private Cliente cliente;
-    @OneToMany(mappedBy = "producto")
+    @OneToMany(mappedBy = "compra")
     private List<ComprasProducto> productos;
 
     public Integer getIdCompra() {
